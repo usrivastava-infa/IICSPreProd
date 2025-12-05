@@ -1,0 +1,102 @@
+{
+  "common" : {
+    "sourceConnectionId" : "01CKSQ0B000000000004",
+    "targetConnectionId" : "01CKSQ0B000000000004",
+    "taskMode" : "CDC_COMBINED",
+    "schedulerId" : "",
+    "runtimeSettings" : {
+      "latency" : 10,
+      "targetSchemaCreationMode" : "CREATE_TARGET",
+      "directoryPerTable" : false,
+      "targetEncodingFormat" : "CSV",
+      "enableAuditColumns" : false,
+      "rowsPerTargetFile" : 100000,
+      "kafkaTargetAttributes" : {
+        "topicPerTable" : false,
+        "topicName" : null,
+        "tablePrefix" : null,
+        "tableSuffix" : null,
+        "includeSchemaName" : false,
+        "asyncWrite" : true,
+        "alternateSerializer" : false,
+        "kafkaProducerProps" : null
+      },
+      "avroTargetAttributes" : null,
+      "avroAsParquetRequested" : false,
+      "parquetTargetAttributes" : null,
+      "snowflakeTargetAttributes" : {
+        "stage" : ""
+      },
+      "cdcCompatibleFormat" : false,
+      "cdcStartPoint" : {
+        "type" : "LATEST",
+        "value" : null
+      },
+      "targetCompressionType" : "NONE",
+      "useV2NamingConventions" : true,
+      "sourcePropsMap" : {
+        "loadType" : "CDC_COMBINED",
+        "journalName" : "",
+        "lobsEnabled" : "false",
+        "selectionMode" : "RULE_BASED",
+        "dbmi.cdc.technique" : "LOG_BASED_CDC",
+        "dbmi.cdc.interval.mins" : "5",
+        "readerInputIsPersisted" : "false",
+        "dbmi.cdc.query.based.column.type" : "COLUMN_TYPE_TIMESTAMP",
+        "unload.enable.source.partitioning" : "false",
+        "pwx.cdcreader.postgresql.connection.repl.slotname" : "",
+        "pwx.cdcreader.postgresql.connection.repl.publication" : ""
+      },
+      "targetPropsMap" : {
+        "applyMode" : "standard",
+        "targetBucket" : "",
+        "targetDirectory" : "",
+        "auditColumnsPrefix" : "INFA_",
+        "rat.audit.columns.optype" : "false",
+        "rat.cdcfile.target.directory" : ""
+      },
+      "runtimePropsMap" : { },
+      "historyManagerSettings" : null
+    },
+    "runtimeEnvId" : "01001N250000000000AE",
+    "taskCreationSource" : null,
+    "cdcGroupInmdtStrgConfig" : {
+      "cdcGroupTaskId" : "",
+      "cdcGroupTaskName" : ""
+    }
+  },
+  "replicationRules" : {
+    "source" : "infa123",
+    "target" : "infa123",
+    "overrides" : {
+      "tableRules" : [ ],
+      "fieldRules" : [ ]
+    },
+    "sourceSet" : [ {
+      "op" : "+",
+      "pattern" : "*",
+      "fieldsSet" : [ ],
+      "schema" : ""
+    } ],
+    "schemaChangeHandlingOptions" : [ {
+      "pattern" : "*",
+      "changetypes" : [ {
+        "op" : "ADD_COLUMN",
+        "action" : "REPLICATE"
+      }, {
+        "op" : "MODIFY_COLUMN",
+        "action" : "REPLICATE"
+      }, {
+        "op" : "DROP_COLUMN",
+        "action" : "IGNORE"
+      }, {
+        "op" : "RENAME_COLUMN",
+        "action" : "IGNORE"
+      } ]
+    } ],
+    "columnTransformations" : [ ]
+  },
+  "datatypeChangeRules" : [ ],
+  "dataFilterConditions" : [ ],
+  "version" : 26
+}
